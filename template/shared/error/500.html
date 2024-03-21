@@ -1,0 +1,23 @@
+{% extends "layout/auth/base.html" %} 
+{% block title %} Error {% endblock %} 
+{% load static %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} 
+
+{% block content %}
+<div class="container">
+
+	<section class="section min-vh-100 d-flex flex-column align-items-center justify-content-center">
+		<h1>500</h1>
+		<h2>Error interno en el servidor, la página web tiene algún error en el código.</h2>
+		<a class="btn" href="{% url 'main:index' %}">Regresa al inicio</a>
+		<img src="/static/assets/img/not-found.svg" class="img-fluid py-5" alt="Error interno en el servidor">
+	</section>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+{% endblock javascripts %}

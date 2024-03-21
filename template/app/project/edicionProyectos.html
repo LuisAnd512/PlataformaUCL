@@ -1,0 +1,54 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+    
+
+
+{% block content %}
+<style>
+	h6{
+		padding-top: 5px;
+	}
+</style>
+
+
+<center> <h1 >Edición de proyecto </h1> </center>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card ">
+            <div class="card-body">
+                <form action="editarProyecto/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                    <h6 >Nombre del proyecto</h6>                        
+                    <div class="form-group">
+                        <input type="text" id="nameNP" name="nameNP" value="{{proyecto.name}}" class="form-control" placeholder="Name" minlength="1" maxlength="50" required>
+                    </div>
+                    <h6 >Descripción del proyecto</h6>
+                    <div class="form-group">
+                        <input type="text" id="descriptionNP" name="descriptionNP" value="{{proyecto.description}}" class="form-control" placeholder="Description" minlength="1" maxlength="50" required>
+                    </div>
+                    <h6>Fecha de finalizacion del proyecto</h6>
+                    <div class="form-group">	
+                        <input type="date" id="endDateNP" name="endDateNP" value="{{proyecto.endDate}}" class="form-control" >
+                    </div>
+                    <h6>Estado</h6>
+                    <div class="form-group">
+                        <label for="id_estado_true"><input type="radio" id="stateNP" name="stateNP" value="True" required> True</label>
+                        <label for="id_estado_false"><input type="radio" id="stateNP" name="stateNP" value="False" required> False</label>
+                    </div>
+
+                    <div class="form-group" style="padding-top: 20px">
+                        <input type="hidden" name="idNP" value="{{ proyecto.id }}">
+                        <button type="submit" class="btn btn-success btn-black text-white"> Guardar</button>
+                    </div>	
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{% endblock content %} 

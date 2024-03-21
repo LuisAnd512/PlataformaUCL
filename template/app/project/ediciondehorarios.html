@@ -1,0 +1,53 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+
+{% block content %}
+
+<style>
+	h6{
+		padding-top: 5px;
+	}
+</style>
+
+
+<center> <h1 >Edición de Cronograma </h1> </center>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card ">
+            <div class="card-body">
+                <form action="editarCronograma/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                    <h6 >Descripción del Cronograma</h6>                        
+                    <div class="form-group">
+                        <input type="text" id="desNP" name="desNP" value="{{schudele.description}}" class="form-control" placeholder="Name" minlength="1" maxlength="50" required>
+                    </div>
+                    <h6 >Hora de Inicio</h6>
+                    <div class="form-group">
+                        <input type="time" id="hiNP" name="hiNP" value="{{schudele.startHour}}" class="form-control" placeholder="Description" minlength="1" maxlength="50" required>
+                    </div>
+                    <h6>Hora de finalizacion</h6>
+                    <div class="form-group">	
+                        <input type="time" id="hfNP" name="hfNP" value="{{schudele.endHour}}" class="form-control" >
+                    </div>
+                    <h6>Frecuencia</h6>
+                    <div class="form-group">	
+                        <input type="time" id="frNP" name="frNP" value="{{schudele.frecuencyHour}}" class="form-control" >
+                    </div>
+                    <h6>Periodicidad</h6>
+                    <div class="form-group">	
+                        <input type="time" id="perNP" name="perNP" value="{{schudele.Periodicity}}" class="form-control" >
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <input type="hidden" name="idNP" value="{{ schudele.id }}">
+                        <button type="submit" class="btn btn-success btn-black text-white"> Guardar</button>
+                    </div>	
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

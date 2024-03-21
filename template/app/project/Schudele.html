@@ -1,0 +1,106 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+
+{% block content %}
+<style>
+    .tabla-container {
+        margin: 0 auto; /* Centrar horizontalmente */
+        width: 100%; /* Ancho deseado */
+    }
+    table {
+        width: auto; /* Ajuste automático al contenido */
+        table-layout: auto; /* Ajuste automático al contenido */
+    }
+
+    th, td {
+        padding: 8px; /* Añadir espacio interno */
+        text-align: center; /* Alinear texto a la izquierda */
+    }
+</style>
+
+<!--Boostrap  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<!--DataTables  -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
+
+
+<style>
+    .btn {
+        margin-bottom: 10px; /* Cambia este valor para ajustar la separación según tus necesidades */
+    }
+</style>
+
+<div>
+    <a href="/project/creacionCronograma/{{abc}}" class="btn btn-info">Agregar Horario</a>
+</div>
+<div>
+    <a href="/project/Network" class="btn btn-info">Ver Networks</a>
+</div>
+<div class="tabla-container">
+        <div class="table-responsive">
+            <table  id="Schudele" class="table table-striped" >                      
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Descripción</th>
+                        <th>Hora de inicio</th>
+                        <th>Hora de finalizacion</th>
+                        <th>Frecuencia</th>
+                        <th>Periodicidad</th>
+                        <th>Account</th>
+                        <th>Network</th>
+                        <th > Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in schudele %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.description}}</td>
+                        <td>{{i.startHour}}</td>
+                        <td>{{i.endHour}}</td>
+                        <td>{{i.frecuencyHour}}</td>
+                        <td>{{i.Periodicity}}</td>
+                        <td><a href="Account/{{i.id}}">Ver Cuenta</a></td>
+                        <td><a >{{i.Network__name}}</a></td>
+                        <td> <a href="edicionCronogramas/{{i.id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></i></i></a> </td>
+                        <td> <a href="eliminacionSchudele/{{i.id}}" class="btn btnEliminacion"><i class="fa-solid fa-trash-can" style="color: #da1b1b;"></i></a> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+</div>
+
+<input type="hidden" name="idNP" value="{{ proyecto.id }}">
+
+
+{% load static %} 
+<script src="{% static 'assets/js/script.js' %}"></script> 
+<!--Boostrap  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<!--jQuery  -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!--DataTables  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#Schudele').DataTable({
+            "columnDefs": [
+                { "width": "80px", "targets": 3 },
+                { "className": "centered", "targets": [0, 1,2,3,4,5,6,7] }, // Aplicar clase a las columnas 0 y 1
+                { "orderable": false, "targets": [1,4,5,6,7,9,8] },       // Hacer no ordenables las columnas 2 y 3
+                { "searchable": false, "targets": [4, 5] },
+                { "centered": true, "targets": [1, 4, 5] }       // Hacer no buscables las columnas 4 y 5
+            ]
+        });
+        
+    });
+</script>
+
+
+{% endblock content %} 

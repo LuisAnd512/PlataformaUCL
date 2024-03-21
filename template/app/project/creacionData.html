@@ -1,0 +1,48 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+
+{% block content %}
+
+<style>
+    .contenedor {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        height: 40vh; /* Establece la altura del contenedor al 100% del viewport height */
+    }
+
+    .card {
+            min-width: 400px; /* Ancho mínimo de la card */
+            min-height: 100px; /* Altura mínima de la card */
+            /* Otros estilos de tu card */
+        }
+    h2 {
+            text-align: center;
+        }
+</style>
+<h2 >Crear nueva Data</h2>
+<div class="contenedor">
+    <div class="card">
+        <div class="card-body">
+            
+            <form action="registrarData/" method="POST">{% csrf_token %}
+                <h6 >Fecha</h6>
+                <div class="form-group">
+                    <input type="date" id="dateNP" name="dateNP" class="form-control" placeholder="Date" minlength="1" maxlength="50" required>
+                </div>
+                <h6 >Texto</h6>
+                <div class="form-group">
+                    <input type="text" id="txtNP" name="txtNP" class="form-control" placeholder="Texto" minlength="1" maxlength="50" required>
+                </div>
+                <input type="hidden" name="idss" value="{{usid}}">
+                <div class="form-group" style="padding-top: 20px" >
+                    <button type="submit" class="btn btn-success btn-black text-white"> Crear </button>
+                </div>	
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

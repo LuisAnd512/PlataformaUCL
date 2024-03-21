@@ -1,0 +1,65 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+
+{% block content %}
+
+<style>
+    .contenedor {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        height: 60vh; /* Establece la altura del contenedor al 100% del viewport height */
+    }
+
+    .card {
+            min-width: 400px; /* Ancho mínimo de la card */
+            min-height: 300px; /* Altura mínima de la card */
+            /* Otros estilos de tu card */
+        }
+    h2 {
+            text-align: center;
+        }
+</style>
+<h2 >Crear nueva Network</h2>
+<div class="contenedor">
+    <div class="card">
+        <div class="card-body">
+            
+            <form action="registrarNet/" method="POST">{% csrf_token %}
+                
+                <h6 >Nombre</h6>
+                <div class="form-group">
+                    <input type="text" id="nameNP" name="nameNP" class="form-control" placeholder="Name" minlength="1" maxlength="50" required>
+                </div>
+                <h6 >Descripción</h6>
+                <div class="form-group">
+                    <input type="text" id="dsNP" name="dsNP" class="form-control" placeholder="Description" minlength="1" maxlength="50" required>
+                </div>
+                <h6>Usuario</h6>
+                <div class="form-group">	
+                    <input type="text" id="usNP" name="usNP" class="form-control" placeholder="Usuario" >
+                </div>
+                <h6>Contraseña</h6>
+                <div class="form-group">	
+                    <input type="text" id="pssNP" name="pssNP" class="form-control" placeholder="Contraseña" >
+                </div>
+                <h6>Token</h6>
+                <div class="form-group">	
+                    <input type="text" id="tkNP" name="tkNP" class="form-control" placeholder="Token" >
+                </div>
+                <h6>Metodo</h6>
+                <div class="form-group">	
+                    <input type="text" id="mtNP" name="mtNP" class="form-control" placeholder="Metodo" >
+                </div>
+                <input type="hidden" name="idss" value="{{usid}}">
+                <div class="form-group" style="padding-top: 20px" >
+                    <button type="submit" class="btn btn-success btn-black text-white"> Crear </button>
+                </div>	
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

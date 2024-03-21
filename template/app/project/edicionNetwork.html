@@ -1,0 +1,62 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+
+{% block content %}
+
+<style>
+	h6{
+		padding-top: 5px;
+	}
+</style>
+
+<center> <h1 >Edición de Network</h1> </center>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card ">
+            <div class="card-body">
+                <form action="editarNet/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+
+                    <h6 >Nombre</h6>                        
+                    <div class="form-group">
+                        <input type="text" id="nameNP" name="nameNP" value="{{account.name}}" class="form-control" placeholder="Name" minlength="1" maxlength="50" required>
+                    </div>
+                    <h6 >Descripción</h6>
+                    <div class="form-group">
+                        <input type="text" id="desNP" name="desNP" value="{{account.description}}" class="form-control" placeholder="Description" minlength="1" maxlength="50" required>
+                    </div>
+                    <h6>Usuario</h6>
+                    <div class="form-group">	
+                        <input type="text" id="usNP" name="usNP" value="{{account.user}}" class="form-control"  placeholder="Type">
+                    </div>
+                    <h6>Contraseña</h6>
+                    <div class="form-group">	
+                        <input type="text" id="pssNP" name="pssNP" value="{{account.password}}" class="form-control"  placeholder="Type">
+                    </div>
+                    <h6>Token</h6>
+                    <div class="form-group">	
+                        <input type="text" id="tkNP" name="tkNP" value="{{account.token}}" class="form-control"  placeholder="Type">
+                    </div>
+                    <h6>Estado</h6>
+                    <div class="form-group">
+                        <label for="id_estado_true"><input type="radio" id="stNP" name="stNP" value="True" required> True</label>
+                        <label for="id_estado_false"><input type="radio" id="stNP" name="stNP" value="False" required> False</label>
+                    </div>
+                    <h6>Metodo</h6>
+                    <div class="form-group">	
+                        <input type="text" id="mtNP" name="mtNP" value="{{account.method}}" class="form-control"  placeholder="Type">
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <input type="hidden" name="idNP" value="{{ account.id }}">
+                        <button type="submit" class="btn btn-success btn-black text-white"> Guardar</button>
+                    </div>	
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

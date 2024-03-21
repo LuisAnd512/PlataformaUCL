@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Monitoreo y análisis de eventos de interés ciudadano mediante el uso de técnicas de inteligencia artificial en el contexto ecuatoriano.">
+
+	<meta name="author" content="UPU">
+	<meta name="keywords" content="monitoreo, análisis, eventos, interés ciudadano, inteligencia artificial, Ecuador, transformación, tecnología, innovación, machine learning, análisis de datos, ciudadanía, proyectos AI, tecnologías emergentes">
+
+	<!-- Fontawesome icons -->
+	<script src="https://kit.fontawesome.com/a26e176259.js" crossorigin="anonymous"></script>
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/static/assets/img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/static/assets/img/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/static/assets/img/favicon/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="/static/assets/img/favicon/android-chrome-512x512.png">
+	<link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+	<link rel="manifest" href="/static/assets/img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/static/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="https://researchcreaminka.web.app/home" />
+
+	<!-- Title -->
+	<title>UPU -  {% block title %}{% endblock %}</title>
+
+	<!-- CSS and Fonts -->
+	<link href="/static/assets/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	{% block stylesheets %}{% endblock stylesheets %}
+	<!-- Specific Page JS goes HERE  -->  
+	{% block javascripts %} {% endblock javascripts %}
+</head>
+
+<body>
+	<div class="wrapper">
+		
+		{% include 'shared/include/app/sidebar.html' %}
+
+		<div class="main">
+
+			{% include 'shared/include/app/navbar.html' %}
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					{% block content %}{% endblock content %}
+
+				</div>
+			</main>
+
+			{% include 'shared/include/app/footer.html' %}
+		</div>
+	</div>
+
+	{% include 'shared/include/scripts.html' %}
+</body>
+
+</html>

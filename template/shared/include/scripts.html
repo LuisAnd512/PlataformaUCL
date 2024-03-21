@@ -1,0 +1,23 @@
+<!-- AdminKit JS -->
+<script src="/static/assets/js/app.js"></script>
+
+<!-- Script for sidebar: active a sidebar-item -->
+<script>
+	// Add this script at the end of your template, before the </body> tag
+	document.addEventListener("DOMContentLoaded", function () {
+		// Get the current URL path
+		var currentPath = window.location.pathname;
+
+		// Loop through each sidebar link
+		document.querySelectorAll(".sidebar-item").forEach(function (item) {
+			// Get the link's href attribute
+			var href = item.querySelector("a").getAttribute("href");
+
+			// Check if the current path contains the link's href
+			if (currentPath.includes(href)) {
+				// Add the 'active' class to the corresponding sidebar-item
+				item.classList.add("active");
+			}
+		});
+	});
+</script>

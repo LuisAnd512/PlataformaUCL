@@ -1,0 +1,23 @@
+{% extends "layout/auth/base.html" %} 
+{% block title %} Error {% endblock %} 
+{% load static %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} 
+
+{% block content %}
+<div class="container">
+
+	<section class="section min-vh-100 d-flex flex-column align-items-center justify-content-center">
+		<h1>400</h1>
+		<h2>La solicitud tiene una sintaxis incorrecta.</h2>
+		<a class="btn" href="{% url 'main:index' %}">Regresa al inicio</a>
+		<img src="/static/assets/img/error/400.svg" class="img-fluid py-5" alt="Error en la solicitud">
+	</section>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+{% endblock javascripts %}

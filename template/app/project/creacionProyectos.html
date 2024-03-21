@@ -1,0 +1,51 @@
+{% extends "layout/app/base.html" %} {% block title %} Proyectos {% endblock %} {% load
+    static %}
+
+{% block content %}
+
+<style>
+    .contenedor {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        height: 60vh; /* Establece la altura del contenedor al 100% del viewport height */
+    }
+
+    .card {
+            min-width: 400px; /* Ancho mínimo de la card */
+            min-height: 300px; /* Altura mínima de la card */
+            /* Otros estilos de tu card */
+        }
+    h2 {
+            text-align: center;
+        }
+</style>
+
+
+<h2 >Crear nuevo proyecto</h2>
+<div class="contenedor">
+    <div class="card">
+        <div class="card-body">
+            <form action="registrarProyecto/" method="POST">{% csrf_token %}
+                <h6 >Nombre del proyecto</h6>
+                <div class="form-group">
+                    <input type="text" id="nameNP" name="nameNP" class="form-control" placeholder="Name" minlength="1" maxlength="50" required>
+                </div>
+                <h6 >Descripción del proyecto</h6>
+                <div class="form-group">
+                    <input type="text" id="descriptionNP" name="descriptionNP" class="form-control" placeholder="Description" minlength="1" maxlength="50" required>
+                </div>
+                <h6>Fecha de finalizacion del proyecto</h6>
+                <div class="form-group">	
+                    <input type="date" id="endDateNP" name="endDateNP" class="form-control" placeholder="End Date" >
+                </div>
+                <div class="form-group" style="padding-top: 20px" >
+                    <button type="submit" class="btn btn-success btn-black text-white"> Crear </button>
+                </div>	
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
